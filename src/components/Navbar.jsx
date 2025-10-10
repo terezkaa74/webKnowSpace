@@ -1,8 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '../contexts/ThemeContext';
 
 export const Navbar = () => {
   const { user, adminProfile, userProfile, signOut } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -35,6 +37,14 @@ export const Navbar = () => {
             </Link>
           )}
 
+          <button
+            onClick={toggleTheme}
+            style={styles.themeToggle}
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? '🌙' : '☀️'}
+          </button>
+
           {user ? (
             <button onClick={handleSignOut} className="btn btn-outline" style={styles.authBtn}>
               Odhlásit se
@@ -57,12 +67,14 @@ export const Navbar = () => {
 
 const styles = {
   nav: {
-    backgroundColor: 'var(--white)',
+    backgroundColor: 'var(--card-bg)',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    borderBottom: '1px solid var(--border-color)',
     position: 'sticky',
     top: 0,
     zIndex: 1000,
     padding: 'calc(var(--spacing) * 2) 0',
+    transition: 'background-color 0.3s ease',
   },
   container: {
     display: 'flex',
@@ -109,6 +121,18 @@ const styles = {
     fontSize: '0.875rem',
     color: 'var(--gray)',
     textDecoration: 'underline',
+  },
+  themeToggle: {
+    fontSize: '1.5rem',
+    padding: 'calc(var(--spacing) * 1)',
+    background: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: '50%',
+    transition: 'background-color 0.2s',
   },
   authBtn: {
     marginLeft: 'calc(var(--spacing) * 2)',
