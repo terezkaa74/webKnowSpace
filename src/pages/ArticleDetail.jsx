@@ -151,9 +151,6 @@ export const ArticleDetail = () => {
           <span style={styles.readTime}>
             ⏱️ {article.reading_time} min čtení
           </span>
-          <span style={styles.views}>
-            👁️ {article.view_count} zobrazení
-          </span>
         </div>
 
         <h1 style={styles.title}>{article.title}</h1>
@@ -200,6 +197,9 @@ const styles = {
   },
   article: {
     backgroundColor: 'var(--white)',
+    borderRadius: 'var(--border-radius)',
+    padding: 'calc(var(--spacing) * 6)',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
   },
   coverImage: {
     width: '100%',
@@ -221,9 +221,6 @@ const styles = {
   readTime: {
     color: 'var(--gray)',
   },
-  views: {
-    color: 'var(--gray)',
-  },
   title: {
     fontSize: '2.5rem',
     color: 'var(--dark)',
@@ -233,7 +230,9 @@ const styles = {
   content: {
     fontSize: '1.125rem',
     lineHeight: 1.8,
-    color: 'var(--dark-800)',
+    color: 'var(--dark)',
+    whiteSpace: 'pre-wrap',
+    wordWrap: 'break-word',
   },
   notFound: {
     textAlign: 'center',
