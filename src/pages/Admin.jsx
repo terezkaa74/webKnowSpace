@@ -10,6 +10,7 @@ export const Admin = () => {
     games: 0,
     publishedArticles: 0,
     publishedGames: 0,
+    users: 0,
   });
 
   useEffect(() => {
@@ -17,9 +18,10 @@ export const Admin = () => {
   }, []);
 
   const fetchStats = async () => {
-    const [articlesResult, gamesResult] = await Promise.all([
+    const [articlesResult, gamesResult, usersResult] = await Promise.all([
       supabase.from('articles').select('id, published'),
       supabase.from('games').select('id, published'),
+      supabase.from('user_profiles').select('id'),
     ]);
 
     setStats({
@@ -29,6 +31,7 @@ export const Admin = () => {
         articlesResult.data?.filter((a) => a.published).length || 0,
       publishedGames:
         gamesResult.data?.filter((g) => g.published).length || 0,
+      users: usersResult.data?.length || 0,
     });
   };
 
@@ -55,6 +58,15 @@ export const Admin = () => {
           <p style={styles.statLabel}>Celkem her</p>
           <p style={styles.statDetail}>
             {stats.publishedGames} publikovaných
+          </p>
+        </div>
+
+        <div className="card" style={styles.statCard}>
+          <div style={styles.statIcon}>👥</div>
+          <h3 style={styles.statNumber}>{stats.users}</h3>
+          <p style={styles.statLabel}>Registrovaní uživatelé</p>
+          <p style={styles.statDetail}>
+            Sledují své pokroky
           </p>
         </div>
       </div>
@@ -84,9 +96,17 @@ export const Admin = () => {
           </p>
         </Link>
 
+        <Link to="/admin/uzivatele" className="card" style={styles.actionCard}>
+          <div style={styles.actionIcon}>👥</div>
+          <h3 style={styles.actionTitle}>Registrovaní Uživatelé</h3>
+          <p style={styles.actionDescription}>
+            Prohlížejte uživatele a jejich pokroky ve čtení
+          </p>
+        </Link>
+
         {adminProfile?.role === 'super_admin' && (
           <Link to="/admin/admini" className="card" style={styles.actionCard}>
-            <div style={styles.actionIcon}>👥</div>
+            <div style={styles.actionIcon}>🔐</div>
             <h3 style={styles.actionTitle}>Správa Adminů</h3>
             <p style={styles.actionDescription}>
               Spravujte administrátorské účty a oprávnění

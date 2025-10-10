@@ -13,6 +13,9 @@ import { Admin } from './pages/Admin';
 import { AdminArticles } from './pages/AdminArticles';
 import { AdminArticleForm } from './pages/AdminArticleForm';
 import { AdminGames } from './pages/AdminGames';
+import { AdminUsers } from './pages/AdminUsers';
+import { UserLogin } from './pages/UserLogin';
+import { UserProfile } from './pages/UserProfile';
 
 function App() {
   return (
@@ -28,6 +31,8 @@ function App() {
               <Route path="/hry" element={<Games />} />
               <Route path="/hra/:slug" element={<GamePlay />} />
               <Route path="/prihlaseni" element={<Login />} />
+              <Route path="/uzivatel/prihlaseni" element={<UserLogin />} />
+              <Route path="/muj-profil" element={<UserProfile />} />
 
               <Route
                 path="/admin"
@@ -66,6 +71,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <AdminGames />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/uzivatele"
+                element={
+                  <ProtectedRoute>
+                    <AdminUsers />
                   </ProtectedRoute>
                 }
               />

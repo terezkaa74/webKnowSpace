@@ -14,13 +14,14 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [adminProfile, setAdminProfile] = useState(null);
+  const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
       if (session?.user) {
-        fetchAdminProfile(session.user.id);
+        fetchProfiles(session.user.id);
       } else {
         setLoading(false);
       }
@@ -30,9 +31,10 @@ export const AuthProvider = ({ children }) => {
       (async () => {
         setUser(session?.user ?? null);
         if (session?.user) {
-          await fetchAdminProfile(session.user.id);
+          await fetchProfiles(session.user.id);
         } else {
           setAdminProfile(null);
+          setUserProfile(null);
           setLoading(false);
         }
       })();
@@ -41,22 +43,27 @@ export const AuthProvider = ({ children }) => {
     return () => subscription.unsubscribe();
   }, []);
 
-  const fetchAdminProfile = async (userId) => {
+  const fetchProfiles = async (userId) => {
     try {
-      const { data, error } = await supabase
-        .from('admin_profiles')
-        .select('*')
-        .eq('id', userId)
-        .maybeSingle();
+      const [adminResult, userResult] = await Promise.all([
+        supabase.from('admin_profiles').select('*').eq('id', userId).maybeSingle(),
+        supabase.from('user_profiles').select('*').eq('id', userId).maybeSingle(),
+      ]);
 
-      if (!error && data) {
-        setAdminProfile(data);
+      if (!adminResult.error && adminResult.data) {
+        setAdminProfile(adminResult.data);
+        setUserProfile(null);
+      } else if (!userResult.error && userResult.data) {
+        setUserProfile(userResult.data);
+        setAdminProfile(null);
       } else {
         setAdminProfile(null);
+        setUserProfile(null);
       }
     } catch (error) {
-      console.error('Error fetching admin profile:', error);
+      console.error('Error fetching profiles:', error);
       setAdminProfile(null);
+      setUserProfile(null);
     } finally {
       setLoading(false);
     }
@@ -93,6 +100,37 @@ export const AuthProvider = ({ children }) => {
     return { data, error };
   };
 
+  const signUpUser = async (email, password, fullName) => {
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+    });
+
+    if (!error && data.user) {
+      const { error: profileError } = await supabase
+        .from('user_profiles')
+        .insert({
+          id: data.user.id,
+          full_name: fullName,
+        });
+
+      if (profileError) {
+        console.error('Error creating user profile:', profileError);
+        return { data, error: profileError };
+      }
+    }
+
+    return { data, error };
+  };
+
+  const signInUser = async (email, password) => {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    return { data, error };
+  };
+
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();
     return { error };
@@ -101,9 +139,12 @@ export const AuthProvider = ({ children }) => {
   const value = {
     user,
     adminProfile,
+    userProfile,
     loading,
     signIn,
     signUp,
+    signUpUser,
+    signInUser,
     signOut,
     isAdmin: !!adminProfile,
     isSuperAdmin: adminProfile?.role === 'super_admin',

@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
+import { useAuth } from '../contexts/AuthContext';
 
 export const ArticleDetail = () => {
   const { slug } = useParams();
+  const { user, isAdmin } = useAuth();
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(null);
 
   useEffect(() => {
     fetchArticle();
@@ -24,6 +27,10 @@ export const ArticleDetail = () => {
     if (!error && data) {
       setArticle(data);
       incrementViewCount(data.id);
+      if (user && !isAdmin) {
+        trackReadingProgress(data.id);
+        fetchProgress(data.id);
+      }
     }
 
     setLoading(false);
@@ -39,6 +46,61 @@ export const ArticleDetail = () => {
         .update({ view_count: article.view_count + 1 })
         .eq('id', articleId);
     });
+  };
+
+  const trackReadingProgress = async (articleId) => {
+    const { error } = await supabase
+      .from('reading_progress')
+      .upsert(
+        {
+          user_id: user.id,
+          article_id: articleId,
+          completed: false,
+        },
+        {
+          onConflict: 'user_id,article_id',
+          ignoreDuplicates: true,
+        }
+      );
+
+    if (error) {
+      console.error('Error tracking progress:', error);
+    }
+  };
+
+  const fetchProgress = async (articleId) => {
+    const { data } = await supabase
+      .from('reading_progress')
+      .select('*')
+      .eq('user_id', user.id)
+      .eq('article_id', articleId)
+      .maybeSingle();
+
+    if (data) {
+      setProgress(data);
+    }
+  };
+
+  const markAsCompleted = async () => {
+    if (!user || isAdmin || !article) return;
+
+    const { error } = await supabase
+      .from('reading_progress')
+      .upsert(
+        {
+          user_id: user.id,
+          article_id: article.id,
+          completed: true,
+          completed_at: new Date().toISOString(),
+        },
+        {
+          onConflict: 'user_id,article_id',
+        }
+      );
+
+    if (!error) {
+      setProgress({ ...progress, completed: true });
+    }
   };
 
   if (loading) {
@@ -100,6 +162,24 @@ export const ArticleDetail = () => {
           style={styles.content}
           dangerouslySetInnerHTML={{ __html: article.content.replace(/\n/g, '<br />') }}
         />
+
+        {user && !isAdmin && (
+          <div style={styles.progressSection}>
+            {progress && progress.completed ? (
+              <div style={styles.completedBadge}>
+                ✅ Článek je označen jako přečtený
+              </div>
+            ) : (
+              <button
+                onClick={markAsCompleted}
+                className="btn btn-primary"
+                style={styles.completeBtn}
+              >
+                ✓ Označit jako přečtené
+              </button>
+            )}
+          </div>
+        )}
       </article>
     </div>
   );
@@ -167,5 +247,26 @@ const styles = {
     fontSize: '1.125rem',
     color: 'var(--gray)',
     marginBottom: 'calc(var(--spacing) * 4)',
+  },
+  progressSection: {
+    marginTop: 'calc(var(--spacing) * 8)',
+    paddingTop: 'calc(var(--spacing) * 6)',
+    borderTop: '2px solid var(--light)',
+    textAlign: 'center',
+  },
+  completeBtn: {
+    fontSize: '1.125rem',
+    padding: 'calc(var(--spacing) * 3) calc(var(--spacing) * 6)',
+  },
+  completedBadge: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: 'calc(var(--spacing) * 2)',
+    padding: 'calc(var(--spacing) * 3) calc(var(--spacing) * 6)',
+    backgroundColor: '#e8f5e9',
+    color: '#2e7d32',
+    borderRadius: 'calc(var(--spacing) * 2)',
+    fontSize: '1.125rem',
+    fontWeight: 600,
   },
 };

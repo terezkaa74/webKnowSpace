@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 export const Navbar = () => {
-  const { user, adminProfile, signOut } = useAuth();
+  const { user, adminProfile, userProfile, signOut } = useAuth();
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -29,14 +29,25 @@ export const Navbar = () => {
             </Link>
           )}
 
+          {userProfile && (
+            <Link to="/muj-profil" style={styles.profileLink}>
+              Můj Profil
+            </Link>
+          )}
+
           {user ? (
             <button onClick={handleSignOut} className="btn btn-outline" style={styles.authBtn}>
               Odhlásit se
             </button>
           ) : (
-            <Link to="/prihlaseni" className="btn btn-primary" style={styles.authBtn}>
-              Přihlásit se
-            </Link>
+            <>
+              <Link to="/uzivatel/prihlaseni" className="btn btn-outline" style={styles.authBtn}>
+                Přihlásit se
+              </Link>
+              <Link to="/prihlaseni" style={styles.adminLoginLink}>
+                Admin
+              </Link>
+            </>
           )}
         </div>
       </div>
@@ -89,6 +100,15 @@ const styles = {
   adminLink: {
     color: 'var(--secondary)',
     fontWeight: 600,
+  },
+  profileLink: {
+    color: 'var(--primary)',
+    fontWeight: 600,
+  },
+  adminLoginLink: {
+    fontSize: '0.875rem',
+    color: 'var(--gray)',
+    textDecoration: 'underline',
   },
   authBtn: {
     marginLeft: 'calc(var(--spacing) * 2)',
