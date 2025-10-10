@@ -257,6 +257,10 @@ const styles = {
   completeBtn: {
     fontSize: '1.125rem',
     padding: 'calc(var(--spacing) * 3) calc(var(--spacing) * 6)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: '0 auto',
   },
   completedBadge: {
     display: 'inline-flex',
