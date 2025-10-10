@@ -16,7 +16,6 @@ export const Navbar = () => {
     <nav style={styles.nav}>
       <div className="container" style={styles.container}>
         <Link to="/" style={styles.logo}>
-          <span style={styles.logoIcon}>🚀</span>
           <span style={styles.logoText}>KnowSpace</span>
         </Link>
 
@@ -42,7 +41,7 @@ export const Navbar = () => {
             style={styles.themeToggle}
             aria-label="Toggle theme"
           >
-            {theme === 'light' ? '🌙' : '☀️'}
+            {theme === 'light' ? 'Dark' : 'Light'}
           </button>
 
           {user ? (
@@ -92,9 +91,6 @@ const styles = {
     color: 'var(--primary)',
     textDecoration: 'none',
     flexShrink: 0,
-  },
-  logoIcon: {
-    fontSize: '2rem',
   },
   logoText: {
     background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)',

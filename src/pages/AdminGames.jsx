@@ -88,14 +88,14 @@ export const AdminGames = () => {
               <div style={styles.colTitle}>
                 <h3 style={styles.gameTitle}>{game.title}</h3>
                 <p style={styles.gameMeta}>
-                  {game.game_type === 'quiz' && '❓ Kvíz'}
-                  {game.game_type === 'simulation' && '🚀 Simulace'}
-                  {game.game_type === 'puzzle' && '🧩 Puzzle'}
-                  {game.game_type === 'memory' && '🃏 Pexeso'}
+                  {game.game_type === 'quiz' && 'Kvíz'}
+                  {game.game_type === 'simulation' && 'Simulace'}
+                  {game.game_type === 'puzzle' && 'Puzzle'}
+                  {game.game_type === 'memory' && 'Pexeso'}
                   {' • '}
-                  {game.difficulty_level === 'easy' && '🟢 Snadné'}
-                  {game.difficulty_level === 'medium' && '🟡 Střední'}
-                  {game.difficulty_level === 'hard' && '🔴 Těžké'}
+                  {game.difficulty_level === 'easy' && 'Snadné'}
+                  {game.difficulty_level === 'medium' && 'Střední'}
+                  {game.difficulty_level === 'hard' && 'Těžké'}
                 </p>
               </div>
               <div style={styles.colStatus}>
@@ -104,11 +104,11 @@ export const AdminGames = () => {
                   className="btn btn-outline"
                   style={styles.statusBtn}
                 >
-                  {game.published ? '✓ Publikováno' : '○ Koncept'}
+                  {game.published ? 'Publikováno' : 'Koncept'}
                 </button>
               </div>
               <div style={styles.colPlays}>
-                <span style={styles.plays}>🎮 {game.play_count}</span>
+                <span style={styles.plays}>{game.play_count} her</span>
               </div>
               <div style={styles.colActions}>
                 <Link

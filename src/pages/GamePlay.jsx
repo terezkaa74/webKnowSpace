@@ -49,7 +49,7 @@ export const GamePlay = () => {
     return (
       <div className="container" style={styles.container}>
         <div style={styles.notFound}>
-          <h1 style={styles.notFoundTitle}>Hra nenalezena 😢</h1>
+          <h1 style={styles.notFoundTitle}>Hra nenalezena</h1>
           <p style={styles.notFoundText}>
             Tato hra neexistuje nebo ještě nebyla publikována.
           </p>
@@ -73,21 +73,21 @@ export const GamePlay = () => {
 
         <div style={styles.gameBadges}>
           <span style={styles.badge}>
-            {game.game_type === 'quiz' && '❓ Kvíz'}
-            {game.game_type === 'simulation' && '🚀 Simulace'}
-            {game.game_type === 'puzzle' && '🧩 Puzzle'}
-            {game.game_type === 'memory' && '🃏 Pexeso'}
+            {game.game_type === 'quiz' && 'Kvíz'}
+            {game.game_type === 'simulation' && 'Simulace'}
+            {game.game_type === 'puzzle' && 'Puzzle'}
+            {game.game_type === 'memory' && 'Pexeso'}
           </span>
           <span style={styles.difficulty}>
-            {game.difficulty_level === 'easy' && '🟢 Snadné'}
-            {game.difficulty_level === 'medium' && '🟡 Střední'}
-            {game.difficulty_level === 'hard' && '🔴 Těžké'}
+            {game.difficulty_level === 'easy' && 'Snadné'}
+            {game.difficulty_level === 'medium' && 'Střední'}
+            {game.difficulty_level === 'hard' && 'Těžké'}
           </span>
         </div>
 
         <div className="card" style={styles.gameArea}>
           <p style={styles.comingSoon}>
-            🎮 Hra se načítá...
+            Hra se načítá...
           </p>
           <p style={styles.hint}>
             Interaktivní herní obsah bude zde zobrazen pomocí game_data z databáze.

@@ -41,7 +41,7 @@ export const Games = () => {
 
   return (
     <div className="container" style={styles.container}>
-      <h1 style={styles.title}>Vesmírné Hry 🎮</h1>
+      <h1 style={styles.title}>Vesmírné Hry</h1>
       <p style={styles.subtitle}>
         Zahraj si zábavné hry a simulace o vesmíru
       </p>
@@ -86,7 +86,7 @@ export const Games = () => {
 
       {games.length === 0 ? (
         <div style={styles.empty}>
-          <p style={styles.emptyText}>Zatím zde nejsou žádné hry 😢</p>
+          <p style={styles.emptyText}>Zatím zde nejsou žádné hry</p>
         </div>
       ) : (
         <div style={styles.grid}>
@@ -109,13 +109,13 @@ export const Games = () => {
                 <p style={styles.description}>{game.description}</p>
                 <div style={styles.meta}>
                   <span style={styles.badge}>
-                    {game.game_type === 'quiz' && '❓ Kvíz'}
-                    {game.game_type === 'simulation' && '🚀 Simulace'}
-                    {game.game_type === 'puzzle' && '🧩 Puzzle'}
-                    {game.game_type === 'memory' && '🃏 Pexeso'}
+                    {game.game_type === 'quiz' && 'Kvíz'}
+                    {game.game_type === 'simulation' && 'Simulace'}
+                    {game.game_type === 'puzzle' && 'Puzzle'}
+                    {game.game_type === 'memory' && 'Pexeso'}
                   </span>
                   <span style={styles.playCount}>
-                    🎮 {game.play_count} her
+                    {game.play_count} her
                   </span>
                 </div>
               </div>

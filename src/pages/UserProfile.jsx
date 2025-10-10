@@ -71,19 +71,16 @@ export const UserProfile = () => {
 
       <div style={styles.statsGrid}>
         <div className="card" style={styles.statCard}>
-          <div style={styles.statIcon}>📚</div>
           <h3 style={styles.statNumber}>{stats.total}</h3>
           <p style={styles.statLabel}>Otevřených článků</p>
         </div>
 
         <div className="card" style={styles.statCard}>
-          <div style={styles.statIcon}>✅</div>
           <h3 style={styles.statNumber}>{stats.completed}</h3>
           <p style={styles.statLabel}>Přečtených článků</p>
         </div>
 
         <div className="card" style={styles.statCard}>
-          <div style={styles.statIcon}>📖</div>
           <h3 style={styles.statNumber}>{stats.inProgress}</h3>
           <p style={styles.statLabel}>Rozpracovaných</p>
         </div>
@@ -177,10 +174,6 @@ const styles = {
   },
   statCard: {
     textAlign: 'center',
-  },
-  statIcon: {
-    fontSize: '3rem',
-    marginBottom: 'calc(var(--spacing) * 2)',
   },
   statNumber: {
     fontSize: '2.5rem',

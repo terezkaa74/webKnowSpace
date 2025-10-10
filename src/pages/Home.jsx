@@ -61,7 +61,7 @@ export const Home = () => {
         <canvas ref={canvasRef} style={styles.starsCanvas}></canvas>
         <div className="container" style={styles.heroContent}>
           <h1 style={styles.heroTitle}>
-            Objevuj Tajemství Vesmíru! 🌌
+            Objevuj Tajemství Vesmíru!
           </h1>
           <p style={styles.heroDescription}>
             Vydej se s námi na dobrodružnou cestu po planetách, hvězdách a galaxiích.
@@ -83,7 +83,6 @@ export const Home = () => {
           <h2 style={styles.sectionTitle}>Co tě čeká?</h2>
           <div style={styles.featureGrid}>
             <div className="card" style={styles.featureCard}>
-              <div style={styles.featureIcon}>📚</div>
               <h3 style={styles.featureTitle}>Zajímavé Články</h3>
               <p style={styles.featureText}>
                 Čti jednoduché a zajímavé články o planetách, hvězdách a vesmíru
@@ -91,7 +90,6 @@ export const Home = () => {
             </div>
 
             <div className="card" style={styles.featureCard}>
-              <div style={styles.featureIcon}>🎮</div>
               <h3 style={styles.featureTitle}>Zábavné Hry</h3>
               <p style={styles.featureText}>
                 Hraj simulace a kvízy, které tě naučí mnoho nového o vesmíru
@@ -99,7 +97,6 @@ export const Home = () => {
             </div>
 
             <div className="card" style={styles.featureCard}>
-              <div style={styles.featureIcon}>🚀</div>
               <h3 style={styles.featureTitle}>Vesmírná Dobrodružství</h3>
               <p style={styles.featureText}>
                 Prozkoumej sluneční soustavu a dozvíš se o raketách a astronautech
@@ -183,10 +180,6 @@ const styles = {
   },
   featureCard: {
     textAlign: 'center',
-  },
-  featureIcon: {
-    fontSize: '4rem',
-    marginBottom: 'calc(var(--spacing) * 2)',
   },
   featureTitle: {
     color: 'var(--primary)',

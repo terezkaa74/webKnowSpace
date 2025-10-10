@@ -88,9 +88,9 @@ export const AdminArticles = () => {
               <div style={styles.colTitle}>
                 <h3 style={styles.articleTitle}>{article.title}</h3>
                 <p style={styles.articleMeta}>
-                  {article.difficulty_level === 'easy' && '🟢 Snadné'}
-                  {article.difficulty_level === 'medium' && '🟡 Střední'}
-                  {article.difficulty_level === 'hard' && '🔴 Pokročilé'}
+                  {article.difficulty_level === 'easy' && 'Snadné'}
+                  {article.difficulty_level === 'medium' && 'Střední'}
+                  {article.difficulty_level === 'hard' && 'Pokročilé'}
                   {' • '}
                   {article.reading_time} min
                 </p>
@@ -101,11 +101,11 @@ export const AdminArticles = () => {
                   className="btn btn-outline"
                   style={styles.statusBtn}
                 >
-                  {article.published ? '✓ Publikováno' : '○ Koncept'}
+                  {article.published ? 'Publikováno' : 'Koncept'}
                 </button>
               </div>
               <div style={styles.colViews}>
-                <span style={styles.views}>👁️ {article.view_count}</span>
+                <span style={styles.views}>{article.view_count} zobrazení</span>
               </div>
               <div style={styles.colActions}>
                 <Link

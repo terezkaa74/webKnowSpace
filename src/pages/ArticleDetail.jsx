@@ -115,7 +115,7 @@ export const ArticleDetail = () => {
     return (
       <div className="container" style={styles.container}>
         <div style={styles.notFound}>
-          <h1 style={styles.notFoundTitle}>Článek nenalezen 😢</h1>
+          <h1 style={styles.notFoundTitle}>Článek nenalezen</h1>
           <p style={styles.notFoundText}>
             Tento článek neexistuje nebo ještě nebyl publikován.
           </p>
@@ -144,12 +144,12 @@ export const ArticleDetail = () => {
 
         <div style={styles.meta}>
           <span style={styles.badge}>
-            {article.difficulty_level === 'easy' && '🟢 Snadné'}
-            {article.difficulty_level === 'medium' && '🟡 Střední'}
-            {article.difficulty_level === 'hard' && '🔴 Pokročilé'}
+            {article.difficulty_level === 'easy' && 'Snadné'}
+            {article.difficulty_level === 'medium' && 'Střední'}
+            {article.difficulty_level === 'hard' && 'Pokročilé'}
           </span>
           <span style={styles.readTime}>
-            ⏱️ {article.reading_time} min čtení
+            {article.reading_time} min čtení
           </span>
         </div>
 
@@ -164,7 +164,7 @@ export const ArticleDetail = () => {
           <div style={styles.progressSection}>
             {progress && progress.completed ? (
               <div style={styles.completedBadge}>
-                ✅ Článek je označen jako přečtený
+                Článek je označen jako přečtený
               </div>
             ) : (
               <button
@@ -172,7 +172,7 @@ export const ArticleDetail = () => {
                 className="btn btn-primary"
                 style={styles.completeBtn}
               >
-                ✓ Označit jako přečtené
+                Označit jako přečtené
               </button>
             )}
           </div>

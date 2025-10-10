@@ -64,13 +64,6 @@ export const SpaceQuiz = ({ questions = [] }) => {
         <p style={styles.scoreText}>
           Správně jsi odpověděl na {score} z {quizQuestions.length} otázek
         </p>
-        <div style={styles.scoreEmoji}>
-          {score === quizQuestions.length
-            ? '🏆'
-            : score >= quizQuestions.length / 2
-            ? '🌟'
-            : '💫'}
-        </div>
         <button onClick={handleRestart} className="btn btn-primary">
           Zkusit znovu
         </button>
@@ -110,8 +103,6 @@ export const SpaceQuiz = ({ questions = [] }) => {
               disabled={answered}
             >
               {option}
-              {answered && isCorrect && ' ✓'}
-              {answered && isSelected && !isCorrect && ' ✗'}
             </button>
           );
         })}
@@ -198,9 +189,5 @@ const styles = {
     fontSize: '1.25rem',
     color: 'var(--gray)',
     marginBottom: 'calc(var(--spacing) * 3)',
-  },
-  scoreEmoji: {
-    fontSize: '5rem',
-    marginBottom: 'calc(var(--spacing) * 4)',
   },
 };

@@ -60,7 +60,6 @@ export const AdminUsers = () => {
         <div style={styles.grid}>
           {users.map((user) => (
             <div key={user.id} className="card" style={styles.userCard}>
-              <div style={styles.userIcon}>👤</div>
               <h3 style={styles.userName}>{user.full_name}</h3>
               <div style={styles.userStats}>
                 <div style={styles.stat}>
@@ -119,10 +118,6 @@ const styles = {
   userCard: {
     textAlign: 'center',
     padding: 'calc(var(--spacing) * 4)',
-  },
-  userIcon: {
-    fontSize: '3rem',
-    marginBottom: 'calc(var(--spacing) * 2)',
   },
   userName: {
     color: 'var(--primary)',

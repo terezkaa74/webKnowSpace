@@ -37,14 +37,13 @@ export const Admin = () => {
 
   return (
     <div className="container" style={styles.container}>
-      <h1 style={styles.title}>Admin Panel 🎛️</h1>
+      <h1 style={styles.title}>Admin Panel</h1>
       <p style={styles.welcome}>
         Vítejte, <strong>{adminProfile?.full_name}</strong>!
       </p>
 
       <div style={styles.statsGrid}>
         <div className="card" style={styles.statCard}>
-          <div style={styles.statIcon}>📚</div>
           <h3 style={styles.statNumber}>{stats.articles}</h3>
           <p style={styles.statLabel}>Celkem článků</p>
           <p style={styles.statDetail}>
@@ -53,7 +52,6 @@ export const Admin = () => {
         </div>
 
         <div className="card" style={styles.statCard}>
-          <div style={styles.statIcon}>🎮</div>
           <h3 style={styles.statNumber}>{stats.games}</h3>
           <p style={styles.statLabel}>Celkem her</p>
           <p style={styles.statDetail}>
@@ -62,7 +60,6 @@ export const Admin = () => {
         </div>
 
         <div className="card" style={styles.statCard}>
-          <div style={styles.statIcon}>👥</div>
           <h3 style={styles.statNumber}>{stats.users}</h3>
           <p style={styles.statLabel}>Registrovaní uživatelé</p>
           <p style={styles.statDetail}>
@@ -73,7 +70,6 @@ export const Admin = () => {
 
       <div style={styles.actionsGrid}>
         <Link to="/admin/clanky" className="card" style={styles.actionCard}>
-          <div style={styles.actionIcon}>📝</div>
           <h3 style={styles.actionTitle}>Správa Článků</h3>
           <p style={styles.actionDescription}>
             Vytvářejte, upravujte a publikujte články o vesmíru
@@ -81,7 +77,6 @@ export const Admin = () => {
         </Link>
 
         <Link to="/admin/hry" className="card" style={styles.actionCard}>
-          <div style={styles.actionIcon}>🎯</div>
           <h3 style={styles.actionTitle}>Správa Her</h3>
           <p style={styles.actionDescription}>
             Vytvářejte a spravujte interaktivní hry a kvízy
@@ -89,7 +84,6 @@ export const Admin = () => {
         </Link>
 
         <Link to="/admin/tagy" className="card" style={styles.actionCard}>
-          <div style={styles.actionIcon}>🏷️</div>
           <h3 style={styles.actionTitle}>Správa Tagů</h3>
           <p style={styles.actionDescription}>
             Organizujte obsah pomocí kategorií a tagů
@@ -97,7 +91,6 @@ export const Admin = () => {
         </Link>
 
         <Link to="/admin/uzivatele" className="card" style={styles.actionCard}>
-          <div style={styles.actionIcon}>👥</div>
           <h3 style={styles.actionTitle}>Registrovaní Uživatelé</h3>
           <p style={styles.actionDescription}>
             Prohlížejte uživatele a jejich pokroky ve čtení
@@ -106,7 +99,6 @@ export const Admin = () => {
 
         {adminProfile?.role === 'super_admin' && (
           <Link to="/admin/admini" className="card" style={styles.actionCard}>
-            <div style={styles.actionIcon}>🔐</div>
             <h3 style={styles.actionTitle}>Správa Adminů</h3>
             <p style={styles.actionDescription}>
               Spravujte administrátorské účty a oprávnění
@@ -142,10 +134,6 @@ const styles = {
   statCard: {
     textAlign: 'center',
   },
-  statIcon: {
-    fontSize: '3rem',
-    marginBottom: 'calc(var(--spacing) * 2)',
-  },
   statNumber: {
     fontSize: '2.5rem',
     color: 'var(--primary)',
@@ -171,10 +159,6 @@ const styles = {
     textDecoration: 'none',
     color: 'inherit',
     cursor: 'pointer',
-  },
-  actionIcon: {
-    fontSize: '3rem',
-    marginBottom: 'calc(var(--spacing) * 2)',
   },
   actionTitle: {
     color: 'var(--primary)',
