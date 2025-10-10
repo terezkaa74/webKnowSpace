@@ -205,7 +205,7 @@ const styles = {
     width: '100%',
     height: '400px',
     objectFit: 'cover',
-    borderRadius: 'calc(var(--spacing) * 2)',
+    borderRadius: '6px',
     marginBottom: 'calc(var(--spacing) * 4)',
   },
   meta: {
@@ -265,7 +265,7 @@ const styles = {
     padding: 'calc(var(--spacing) * 3) calc(var(--spacing) * 6)',
     backgroundColor: '#e8f5e9',
     color: '#2e7d32',
-    borderRadius: 'calc(var(--spacing) * 2)',
+    borderRadius: '6px',
     fontSize: '1.125rem',
     fontWeight: 600,
   },

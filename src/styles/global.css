@@ -127,7 +127,7 @@ button {
 
 .btn {
   padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
-  border-radius: calc(var(--spacing) * 1);
+  border-radius: 4px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -174,7 +174,7 @@ button {
 
 .card {
   background-color: var(--card-bg);
-  border-radius: calc(var(--spacing) * 2);
+  border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--border-color);
   padding: calc(var(--spacing) * 3);
@@ -190,7 +190,7 @@ input, textarea {
   width: 100%;
   padding: calc(var(--spacing) * 1.5);
   border: 2px solid var(--border-color);
-  border-radius: calc(var(--spacing) * 1);
+  border-radius: 4px;
   font-family: inherit;
   font-size: 1rem;
   background-color: var(--card-bg);

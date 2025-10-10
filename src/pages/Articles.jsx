@@ -160,7 +160,7 @@ const styles = {
     width: '100%',
     height: '200px',
     objectFit: 'cover',
-    borderRadius: 'calc(var(--spacing) * 2) calc(var(--spacing) * 2) 0 0',
+    borderRadius: '6px 6px 0 0',
   },
   cardContent: {
     flex: 1,

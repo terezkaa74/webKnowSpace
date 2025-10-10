@@ -131,7 +131,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: '50%',
+    borderRadius: '4px',
     transition: 'background-color 0.2s',
   },
   authBtn: {

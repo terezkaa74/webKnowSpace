@@ -153,7 +153,7 @@ const styles = {
   },
   table: {
     backgroundColor: 'var(--white)',
-    borderRadius: 'calc(var(--spacing) * 2)',
+    borderRadius: '6px',
     overflow: 'hidden',
     boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
   },

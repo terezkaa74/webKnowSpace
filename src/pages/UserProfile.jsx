@@ -228,7 +228,7 @@ const styles = {
     height: '180px',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    borderRadius: '8px',
+    borderRadius: '6px',
     marginBottom: 'calc(var(--spacing) * 3)',
   },
   progressContent: {
@@ -251,7 +251,7 @@ const styles = {
   },
   badge: {
     padding: 'calc(var(--spacing) * 1) calc(var(--spacing) * 2)',
-    borderRadius: '20px',
+    borderRadius: '4px',
     fontSize: '0.75rem',
     fontWeight: 600,
     textTransform: 'uppercase',

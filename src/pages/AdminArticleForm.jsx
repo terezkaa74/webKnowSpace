@@ -243,7 +243,7 @@ const styles = {
   form: {
     backgroundColor: 'var(--white)',
     padding: 'calc(var(--spacing) * 4)',
-    borderRadius: 'calc(var(--spacing) * 2)',
+    borderRadius: '6px',
     boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
   },
   row: {
@@ -258,7 +258,7 @@ const styles = {
     width: '100%',
     padding: 'calc(var(--spacing) * 1.5)',
     border: '2px solid var(--gray-light)',
-    borderRadius: 'calc(var(--spacing) * 1)',
+    borderRadius: '4px',
     fontSize: '1rem',
     fontFamily: 'inherit',
   },
