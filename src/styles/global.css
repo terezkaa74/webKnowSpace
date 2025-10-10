@@ -245,3 +245,59 @@ label {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 calc(var(--spacing) * 2.5);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spacing: 6px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .container {
+    padding: 0 calc(var(--spacing) * 2);
+  }
+
+  .btn {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2.5);
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: calc(var(--spacing) * 2.5);
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+  }
+
+  .btn {
+    padding: calc(var(--spacing) * 1.25) calc(var(--spacing) * 2);
+    font-size: 0.875rem;
+  }
+}

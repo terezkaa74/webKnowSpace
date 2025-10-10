@@ -226,6 +226,7 @@ const styles = {
     color: 'var(--dark)',
     marginBottom: 'calc(var(--spacing) * 4)',
     lineHeight: 1.3,
+    wordWrap: 'break-word',
   },
   content: {
     fontSize: '1.125rem',

@@ -80,6 +80,8 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    gap: 'calc(var(--spacing) * 2)',
+    flexWrap: 'wrap',
   },
   logo: {
     display: 'flex',
@@ -89,6 +91,7 @@ const styles = {
     fontWeight: 'bold',
     color: 'var(--primary)',
     textDecoration: 'none',
+    flexShrink: 0,
   },
   logoIcon: {
     fontSize: '2rem',
@@ -103,11 +106,13 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: 'calc(var(--spacing) * 3)',
+    flexWrap: 'wrap',
   },
   link: {
     color: 'var(--dark)',
     fontWeight: 500,
     transition: 'color 0.2s',
+    whiteSpace: 'nowrap',
   },
   adminLink: {
     color: 'var(--secondary)',
