@@ -1,0 +1,34 @@
+export const Footer = () => {
+  return (
+    <footer style={styles.footer}>
+      <div className="container" style={styles.container}>
+        <p style={styles.text}>
+          © {new Date().getFullYear()} KnowSpace - Objevuj Vesmír
+        </p>
+        <p style={styles.description}>
+          Vzdělávací platforma o vesmíru pro děti
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+const styles = {
+  footer: {
+    backgroundColor: 'var(--dark)',
+    color: 'var(--white)',
+    padding: 'calc(var(--spacing) * 5) 0',
+    marginTop: 'calc(var(--spacing) * 10)',
+  },
+  container: {
+    textAlign: 'center',
+  },
+  text: {
+    fontSize: '1rem',
+    marginBottom: 'calc(var(--spacing) * 1)',
+  },
+  description: {
+    color: 'var(--gray-light)',
+    fontSize: '0.875rem',
+  },
+};
