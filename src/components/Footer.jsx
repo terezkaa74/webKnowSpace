@@ -15,10 +15,12 @@ export const Footer = () => {
 
 const styles = {
   footer: {
-    backgroundColor: 'var(--dark)',
-    color: 'var(--white)',
+    backgroundColor: 'var(--card-bg)',
+    color: 'var(--text-primary)',
     padding: 'calc(var(--spacing) * 5) 0',
     marginTop: 'calc(var(--spacing) * 10)',
+    borderTop: '1px solid var(--border-color)',
+    transition: 'background-color 0.3s ease, color 0.3s ease',
   },
   container: {
     textAlign: 'center',
@@ -28,7 +30,7 @@ const styles = {
     marginBottom: 'calc(var(--spacing) * 1)',
   },
   description: {
-    color: 'var(--gray-light)',
+    color: 'var(--text-secondary)',
     fontSize: '0.875rem',
   },
 };
