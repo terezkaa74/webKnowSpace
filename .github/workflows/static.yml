@@ -1,9 +1,8 @@
-# Simple workflow for deploying Vite + React app to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy Vite app to GitHub Pages
 
 on:
   push:
-    branches: ["main"]  # Spustí se při pushi do main
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -33,11 +32,10 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Upload artifact
+      - name: Upload dist folder
         uses: actions/upload-pages-artifact@v3
         with:
-          # 👉 Upload pouze buildnutý obsah (ne celý repozitář)
-          path: './dist'
+          path: ./dist
 
   deploy:
     environment:
