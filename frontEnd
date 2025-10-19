@@ -381,22 +381,22 @@
         <div id="home" class="page active">
             <div class="hero">
                 <h1>Vítej v KnowSpace! 🌟</h1>
-                <p>Tvoje cesta za věděním začíná zde. Objevuj, uč se a hraj si s námi!</p>
+                <p>Tvoje cesta za věděním začíná zde.</p>
                 <button class="btn btn-primary" onclick="showPage('learn')">Začít učení</button>
             </div>
 
             <div class="home-content">
                 <h2>O KnowSpace</h2>
                 <p>
-                    KnowSpace je moderní vzdělávací platforma navržená speciálně pro studenty středních škol v České republice. 
+                    KnowSpace je moderní vzdělávací platforma navržená speciálně pro studenty se zájmem o vesmír. 
                     Naším cílem je učinit vzdělávání zábavným, interaktivním a efektivním prostřednictvím inovativních metod a technologií.
                 </p>
                 <p>
-                    Věříme, že každý student má jedinečný způsob učení. Proto nabízíme rozmanitý obsah - od podrobných článků 
-                    přes interaktivní kvízy až po vzdělávací hry. Všechno je přizpůsobeno českému vzdělávacímu systému a věku našich studentů.
+                    Věříme, že každý student má obrovský potencial. Proto nabízíme rozmanitý obsah - od podrobných článků 
+                    až po vzdělávací hry.
                 </p>
                 <p>
-                    Připojte se k tisícům studentů, kteří už objevili radost z učení s KnowSpace. Začněte svou cestu za věděním ještě dnes!
+                    Připojte se ke studentům, kteří už objevili radost z učení s KnowSpace. Začněte svou cestu za věděním ještě dnes!
                 </p>
             </div>
 
@@ -404,12 +404,12 @@
                 <div class="feature-card">
                     <div class="feature-icon">📚</div>
                     <h3>Interaktivní články</h3>
-                    <p>Objevuj fascinující témata prostřednictvím poutavých článků přizpůsobených tvému věku.</p>
+                    <p>Objevuj fascinující témata prostřednictvím článků přizpůsobených tvým zájmum.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎮</div>
                     <h3>Vzdělávací hry</h3>
-                    <p>Učení nemusí být nudné! Hrajes si a současně si rozšiřuješ znalosti.</p>
+                    <p>Učení není nudné! Hraješ si a současně si rozšiřuješ znalosti.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🏆</div>
@@ -423,7 +423,7 @@
         <div id="learn" class="page">
             <div class="hero">
                 <h1>📖 Centrum učení</h1>
-                <p>Vyber si předmět a ponořte se do světa poznání!</p>
+                <p>Vyber si předmět a ponořte se do toho!</p>
             </div>
 
             <div class="subjects-grid">
