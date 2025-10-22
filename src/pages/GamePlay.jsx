@@ -86,12 +86,23 @@ export const GamePlay = () => {
         </div>
 
         <div className="card" style={styles.gameArea}>
-          <p style={styles.comingSoon}>
-            Hra se načítá...
-          </p>
-          <p style={styles.hint}>
-            Interaktivní herní obsah bude zde zobrazen pomocí game_data z databáze.
-          </p>
+          {game.game_data?.external_url ? (
+            <iframe
+              src={game.game_data.external_url}
+              style={styles.iframe}
+              title={game.title}
+              allowFullScreen
+            />
+          ) : (
+            <>
+              <p style={styles.comingSoon}>
+                Hra se načítá...
+              </p>
+              <p style={styles.hint}>
+                Interaktivní herní obsah bude zde zobrazen pomocí game_data z databáze.
+              </p>
+            </>
+          )}
         </div>
       </div>
     </div>
@@ -148,6 +159,13 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'var(--gray-lighter)',
+    padding: 0,
+    overflow: 'hidden',
+  },
+  iframe: {
+    width: '100%',
+    height: '600px',
+    border: 'none',
   },
   comingSoon: {
     fontSize: '1.5rem',
