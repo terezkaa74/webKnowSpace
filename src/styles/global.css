@@ -171,7 +171,7 @@ button {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 calc(var(--spacing) * 3);
+  padding: 0 calc(var(--spacing) * 2);
 }
 
 .card {

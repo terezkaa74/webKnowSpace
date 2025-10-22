@@ -91,6 +91,7 @@ const styles = {
     color: 'var(--primary)',
     textDecoration: 'none',
     flexShrink: 0,
+    marginLeft: 0,
   },
   logoText: {
     background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)',
