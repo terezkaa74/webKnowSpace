@@ -120,6 +120,7 @@ const styles = {
     fontWeight: 500,
     transition: 'color 0.2s',
     whiteSpace: 'nowrap',
+    fontSize: '1rem',
   },
   adminLink: {
     color: 'var(--secondary)',

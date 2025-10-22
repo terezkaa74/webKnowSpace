@@ -145,15 +145,16 @@ const styles = {
     zIndex: 1,
   },
   heroTitle: {
-    fontSize: '3rem',
+    fontSize: 'clamp(2rem, 5vw, 3rem)',
     marginBottom: 'calc(var(--spacing) * 3)',
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
   },
   heroDescription: {
-    fontSize: '1.25rem',
+    fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
     lineHeight: 1.8,
     marginBottom: 'calc(var(--spacing) * 5)',
     opacity: 0.95,
+    padding: '0 calc(var(--spacing) * 2)',
   },
   heroButtons: {
     display: 'flex',
@@ -175,7 +176,7 @@ const styles = {
   },
   featureGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
     gap: 'calc(var(--spacing) * 4)',
   },
   featureCard: {
@@ -200,13 +201,14 @@ const styles = {
     margin: '0 auto',
   },
   ctaTitle: {
-    fontSize: '2.5rem',
+    fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
     marginBottom: 'calc(var(--spacing) * 2)',
   },
   ctaText: {
-    fontSize: '1.25rem',
+    fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
     marginBottom: 'calc(var(--spacing) * 4)',
     opacity: 0.95,
+    padding: '0 calc(var(--spacing) * 2)',
   },
   ctaBtn: {
     fontSize: '1.125rem',

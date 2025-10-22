@@ -152,6 +152,17 @@ const styles = {
     gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
     gap: 'calc(var(--spacing) * 4)',
   },
+  '@media (max-width: 768px)': {
+    grid: {
+      gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+      gap: 'calc(var(--spacing) * 3)',
+    },
+  },
+  '@media (max-width: 480px)': {
+    grid: {
+      gridTemplateColumns: '1fr',
+    },
+  },
   card: {
     overflow: 'hidden',
     display: 'flex',

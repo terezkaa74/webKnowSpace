@@ -272,16 +272,31 @@ label {
   }
 
   .container {
-    padding: 0 calc(var(--spacing) * 2);
+    padding: 0 calc(var(--spacing) * 3);
   }
 
   .btn {
     padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2.5);
     font-size: 0.9rem;
+    width: 100%;
+    max-width: 200px;
   }
 
   .card {
     padding: calc(var(--spacing) * 2.5);
+  }
+
+  nav {
+    padding: calc(var(--spacing) * 2) 0 !important;
+  }
+
+  nav .container {
+    justify-content: center !important;
+  }
+
+  nav .menu {
+    gap: calc(var(--spacing) * 1.5) !important;
+    justify-content: center;
   }
 }
 
@@ -301,5 +316,17 @@ label {
   .btn {
     padding: calc(var(--spacing) * 1.25) calc(var(--spacing) * 2);
     font-size: 0.875rem;
+  }
+
+  .container {
+    padding: 0 calc(var(--spacing) * 2);
+  }
+
+  nav .logo {
+    font-size: 1.25rem !important;
+  }
+
+  nav .menu {
+    font-size: 0.85rem !important;
   }
 }
