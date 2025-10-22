@@ -1,10 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const Navbar = () => {
   const { user, adminProfile, userProfile, signOut } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage, t } = useLanguage();
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -20,41 +22,49 @@ export const Navbar = () => {
         </Link>
 
         <div style={styles.menu}>
-          <Link to="/" style={styles.link}>Domů</Link>
-          <Link to="/clanky" style={styles.link}>Články</Link>
-          <Link to="/hry" style={styles.link}>Hry</Link>
+          <Link to="/" style={styles.link}>{t('home')}</Link>
+          <Link to="/clanky" style={styles.link}>{t('articles')}</Link>
+          <Link to="/hry" style={styles.link}>{t('games')}</Link>
 
           {adminProfile && (
             <Link to="/admin" style={styles.adminLink}>
-              Admin Panel
+              {t('adminPanel')}
             </Link>
           )}
 
           {userProfile && (
             <Link to="/muj-profil" style={styles.profileLink}>
-              Můj Profil
+              {t('myProfile')}
             </Link>
           )}
+
+          <button
+            onClick={toggleLanguage}
+            style={styles.languageToggle}
+            aria-label="Toggle language"
+          >
+            {language === 'cs' ? 'EN' : 'CS'}
+          </button>
 
           <button
             onClick={toggleTheme}
             style={styles.themeToggle}
             aria-label="Toggle theme"
           >
-            {theme === 'light' ? 'Dark' : 'Light'}
+            {theme === 'light' ? '🌙' : '☀️'}
           </button>
 
           {user ? (
             <button onClick={handleSignOut} className="btn btn-outline" style={styles.authBtn}>
-              Odhlásit se
+              {t('signOut')}
             </button>
           ) : (
             <>
               <Link to="/uzivatel/prihlaseni" className="btn btn-outline" style={styles.authBtn}>
-                Přihlásit se
+                {t('signIn')}
               </Link>
               <Link to="/prihlaseni" style={styles.adminLoginLink}>
-                Admin
+                {t('admin')}
               </Link>
             </>
           )}
@@ -135,6 +145,17 @@ const styles = {
     justifyContent: 'center',
     borderRadius: '4px',
     transition: 'background-color 0.2s',
+  },
+  languageToggle: {
+    fontSize: '0.875rem',
+    fontWeight: 600,
+    padding: 'calc(var(--spacing) * 1) calc(var(--spacing) * 1.5)',
+    background: 'transparent',
+    border: '2px solid var(--border-color)',
+    color: 'var(--dark)',
+    cursor: 'pointer',
+    borderRadius: '4px',
+    transition: 'all 0.2s',
   },
   authBtn: {
     marginLeft: 'calc(var(--spacing) * 2)',

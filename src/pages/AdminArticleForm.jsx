@@ -18,6 +18,7 @@ export const AdminArticleForm = () => {
     reading_time: 5,
     difficulty_level: 'easy',
     published: false,
+    language: 'cs',
   });
 
   const isEdit = !!id;
@@ -191,6 +192,21 @@ export const AdminArticleForm = () => {
               <option value="hard">Pokročilé</option>
             </select>
           </div>
+        </div>
+
+        <div className="input-group">
+          <label htmlFor="language">Jazyk *</label>
+          <select
+            id="language"
+            name="language"
+            value={formData.language}
+            onChange={handleChange}
+            style={styles.select}
+            required
+          >
+            <option value="cs">Čeština</option>
+            <option value="en">English</option>
+          </select>
         </div>
 
         <div className="input-group">

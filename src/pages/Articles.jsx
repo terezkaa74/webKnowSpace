@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
+  const { language, t } = useLanguage();
 
   useEffect(() => {
     fetchArticles();
-  }, [filter]);
+  }, [filter, language]);
 
   const fetchArticles = async () => {
     setLoading(true);
@@ -17,6 +19,7 @@ export const Articles = () => {
       .from('articles')
       .select('*')
       .eq('published', true)
+      .eq('language', language)
       .order('created_at', { ascending: false });
 
     if (filter !== 'all') {
