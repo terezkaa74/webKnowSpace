@@ -22,7 +22,6 @@ export const Navbar = () => {
         </Link>
 
         <div style={styles.menu}>
-          <Link to="/" style={styles.link}>{t('home')}</Link>
           <Link to="/clanky" style={styles.link}>{t('articles')}</Link>
           <Link to="/hry" style={styles.link}>{t('games')}</Link>
 
