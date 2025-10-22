@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const Games = () => {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
+  const { t } = useLanguage();
 
   useEffect(() => {
     fetchGames();
@@ -41,9 +43,9 @@ export const Games = () => {
 
   return (
     <div className="container" style={styles.container}>
-      <h1 style={styles.title}>Vesmírné Hry</h1>
+      <h1 style={styles.title}>{t('gamesPageTitle')}</h1>
       <p style={styles.subtitle}>
-        Zahraj si zábavné hry a simulace o vesmíru
+        {t('gamesPageSubtitle')}
       </p>
 
       <div style={styles.filterContainer}>
@@ -52,41 +54,41 @@ export const Games = () => {
           className={filter === 'all' ? 'btn btn-primary' : 'btn btn-outline'}
           style={styles.filterBtn}
         >
-          Všechny
+          {t('all')}
         </button>
         <button
           onClick={() => setFilter('quiz')}
           className={filter === 'quiz' ? 'btn btn-primary' : 'btn btn-outline'}
           style={styles.filterBtn}
         >
-          Kvízy
+          {t('quiz')}
         </button>
         <button
           onClick={() => setFilter('simulation')}
           className={filter === 'simulation' ? 'btn btn-primary' : 'btn btn-outline'}
           style={styles.filterBtn}
         >
-          Simulace
+          {t('simulation')}
         </button>
         <button
           onClick={() => setFilter('puzzle')}
           className={filter === 'puzzle' ? 'btn btn-primary' : 'btn btn-outline'}
           style={styles.filterBtn}
         >
-          Puzzle
+          {t('puzzle')}
         </button>
         <button
           onClick={() => setFilter('memory')}
           className={filter === 'memory' ? 'btn btn-primary' : 'btn btn-outline'}
           style={styles.filterBtn}
         >
-          Pexeso
+          {t('memory')}
         </button>
       </div>
 
       {games.length === 0 ? (
         <div style={styles.empty}>
-          <p style={styles.emptyText}>Zatím zde nejsou žádné hry</p>
+          <p style={styles.emptyText}>{t('noGames')}</p>
         </div>
       ) : (
         <div style={styles.grid}>
@@ -109,13 +111,13 @@ export const Games = () => {
                 <p style={styles.description}>{game.description}</p>
                 <div style={styles.meta}>
                   <span style={styles.badge}>
-                    {game.game_type === 'quiz' && 'Kvíz'}
-                    {game.game_type === 'simulation' && 'Simulace'}
-                    {game.game_type === 'puzzle' && 'Puzzle'}
-                    {game.game_type === 'memory' && 'Pexeso'}
+                    {game.game_type === 'quiz' && t('quiz')}
+                    {game.game_type === 'simulation' && t('simulation')}
+                    {game.game_type === 'puzzle' && t('puzzle')}
+                    {game.game_type === 'memory' && t('memory')}
                   </span>
                   <span style={styles.playCount}>
-                    {game.play_count} her
+                    {game.play_count}
                   </span>
                 </div>
               </div>

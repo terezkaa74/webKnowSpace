@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const Home = () => {
   const canvasRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -61,18 +63,17 @@ export const Home = () => {
         <canvas ref={canvasRef} style={styles.starsCanvas}></canvas>
         <div className="container" style={styles.heroContent}>
           <h1 style={styles.heroTitle}>
-            Objevuj Tajemství Vesmíru!
+            {t('welcomeTitle')}
           </h1>
           <p style={styles.heroDescription}>
-            Vydej se s námi na dobrodružnou cestu po planetách, hvězdách a galaxiích.
-            Naučíš se zajímavé věci o vesmíru zábavnou formou.
+            {t('welcomeSubtitle')}
           </p>
           <div style={styles.heroButtons}>
             <Link to="/clanky" className="btn btn-primary" style={styles.heroBtn}>
-              Prozkoumat Články
+              {t('exploreArticles')}
             </Link>
             <Link to="/hry" className="btn btn-secondary" style={styles.heroBtn}>
-              Hrát Hry
+              {t('playGames')}
             </Link>
           </div>
         </div>
@@ -80,26 +81,26 @@ export const Home = () => {
 
       <section style={styles.features}>
         <div className="container">
-          <h2 style={styles.sectionTitle}>Co tě čeká?</h2>
+          <h2 style={styles.sectionTitle}>{t('whatAwaits')}</h2>
           <div style={styles.featureGrid}>
             <div className="card" style={styles.featureCard}>
-              <h3 style={styles.featureTitle}>Zajímavé Články</h3>
+              <h3 style={styles.featureTitle}>{t('interestingArticles')}</h3>
               <p style={styles.featureText}>
-                Čti jednoduché a zajímavé články o planetách, hvězdách a vesmíru
+                {t('interestingArticlesDesc')}
               </p>
             </div>
 
             <div className="card" style={styles.featureCard}>
-              <h3 style={styles.featureTitle}>Zábavné Hry</h3>
+              <h3 style={styles.featureTitle}>{t('funGames')}</h3>
               <p style={styles.featureText}>
-                Hraj simulace a kvízy, které tě naučí mnoho nového o vesmíru
+                {t('funGamesDesc')}
               </p>
             </div>
 
             <div className="card" style={styles.featureCard}>
-              <h3 style={styles.featureTitle}>Vesmírná Dobrodružství</h3>
+              <h3 style={styles.featureTitle}>{t('spaceAdventures')}</h3>
               <p style={styles.featureText}>
-                Prozkoumej sluneční soustavu a dozvíš se o raketách a astronautech
+                {t('spaceAdventuresDesc')}
               </p>
             </div>
           </div>
@@ -108,12 +109,12 @@ export const Home = () => {
 
       <section style={styles.cta}>
         <div className="container" style={styles.ctaContent}>
-          <h2 style={styles.ctaTitle}>Připraven na start?</h2>
+          <h2 style={styles.ctaTitle}>{t('readyForLaunch')}</h2>
           <p style={styles.ctaText}>
-            Začni objevovat vesmír již dnes!
+            {t('readyForLaunchDesc')}
           </p>
           <Link to="/clanky" className="btn btn-primary" style={styles.ctaBtn}>
-            Začít Objevovat
+            {t('startExploring')}
           </Link>
         </div>
       </section>

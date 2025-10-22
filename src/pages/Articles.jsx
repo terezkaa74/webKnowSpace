@@ -44,9 +44,9 @@ export const Articles = () => {
 
   return (
     <div className="container" style={styles.container}>
-      <h1 style={styles.title}>Články o Vesmíru</h1>
+      <h1 style={styles.title}>{t('articlesPageTitle')}</h1>
       <p style={styles.subtitle}>
-        Objevuj zajímavé informace o planetách, hvězdách a vesmírných jevech
+        {t('articlesPageSubtitle')}
       </p>
 
       <div style={styles.filterContainer}>
@@ -55,34 +55,34 @@ export const Articles = () => {
           className={filter === 'all' ? 'btn btn-primary' : 'btn btn-outline'}
           style={styles.filterBtn}
         >
-          Všechny
+          {t('all')}
         </button>
         <button
           onClick={() => setFilter('easy')}
           className={filter === 'easy' ? 'btn btn-primary' : 'btn btn-outline'}
           style={styles.filterBtn}
         >
-          Snadné
+          {t('easy')}
         </button>
         <button
           onClick={() => setFilter('medium')}
           className={filter === 'medium' ? 'btn btn-primary' : 'btn btn-outline'}
           style={styles.filterBtn}
         >
-          Střední
+          {t('medium')}
         </button>
         <button
           onClick={() => setFilter('hard')}
           className={filter === 'hard' ? 'btn btn-primary' : 'btn btn-outline'}
           style={styles.filterBtn}
         >
-          Pokročilé
+          {t('hard')}
         </button>
       </div>
 
       {articles.length === 0 ? (
         <div style={styles.empty}>
-          <p style={styles.emptyText}>Zatím zde nejsou žádné články</p>
+          <p style={styles.emptyText}>{t('noArticles')}</p>
         </div>
       ) : (
         <div style={styles.grid}>
@@ -105,12 +105,12 @@ export const Articles = () => {
                 <p style={styles.excerpt}>{article.excerpt}</p>
                 <div style={styles.meta}>
                   <span style={styles.badge}>
-                    {article.difficulty_level === 'easy' && 'Snadné'}
-                    {article.difficulty_level === 'medium' && 'Střední'}
-                    {article.difficulty_level === 'hard' && 'Pokročilé'}
+                    {article.difficulty_level === 'easy' && t('easy')}
+                    {article.difficulty_level === 'medium' && t('medium')}
+                    {article.difficulty_level === 'hard' && t('hard')}
                   </span>
                   <span style={styles.readTime}>
-                    {article.reading_time} min
+                    {article.reading_time} {t('minRead')}
                   </span>
                 </div>
               </div>
