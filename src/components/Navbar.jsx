@@ -72,7 +72,7 @@ const styles = {
     position: 'sticky',
     top: 0,
     zIndex: 1000,
-    padding: 'calc(var(--spacing) * 2) 0',
+    padding: 'calc(var(--spacing) * 1) 0',
     transition: 'background-color 0.3s ease',
   },
   container: {
