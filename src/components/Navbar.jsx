@@ -18,6 +18,7 @@ export const Navbar = () => {
     <nav style={styles.nav}>
       <div className="container" style={styles.container}>
         <Link to="/" style={styles.logo}>
+          <img src="/A0010376-A5F0-4587-9D1C-47F2C61D3DFF.PNG" alt="KnowSpace Logo" style={styles.logoImage} />
           <span style={styles.logoText}>KnowSpace</span>
         </Link>
 
@@ -101,6 +102,10 @@ const styles = {
     textDecoration: 'none',
     flexShrink: 0,
     marginLeft: 0,
+  },
+  logoImage: {
+    height: '40px',
+    width: 'auto',
   },
   logoText: {
     background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)',
