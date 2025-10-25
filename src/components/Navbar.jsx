@@ -9,6 +9,10 @@ export const Navbar = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const navigate = useNavigate();
 
+  const logoSrc = theme === 'light'
+    ? '/C50B2D32-5D61-40F5-92D9-34FD88DAC64B copy.PNG'
+    : '/A0010376-A5F0-4587-9D1C-47F2C61D3DFF.PNG';
+
   const handleSignOut = async () => {
     await signOut();
     navigate('/');
@@ -18,7 +22,7 @@ export const Navbar = () => {
     <nav style={styles.nav}>
       <div className="container" style={styles.container}>
         <Link to="/" style={styles.logo}>
-          <img src="/A0010376-A5F0-4587-9D1C-47F2C61D3DFF.PNG" alt="KnowSpace Logo" style={styles.logoImage} />
+          <img src={logoSrc} alt="KnowSpace Logo" style={styles.logoImage} />
           <span style={styles.logoText}>KnowSpace</span>
         </Link>
 
