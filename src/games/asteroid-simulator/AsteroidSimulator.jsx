@@ -30,7 +30,7 @@ export const AsteroidSimulator = () => {
   }, []);
 
   return (
-    <div className="asteroid-sim-container">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 relative overflow-hidden">
       {stars.map((star) => (
         <div
           key={star.id}
@@ -43,21 +43,23 @@ export const AsteroidSimulator = () => {
           }}
         />
       ))}
-      <div className="asteroid-sim-content">
-        <header className="asteroid-sim-header">
-          <h1 className="asteroid-sim-title">
+      <div className="container mx-auto px-4 py-6 relative z-10">
+        <header className="text-center mb-8">
+          <h1 className="text-5xl font-bold text-white mb-2">
             AstroSim
           </h1>
-          <p className="asteroid-sim-subtitle">
+          <p className="text-slate-300 text-lg">
             Asteroid Bennu Impact Simulation & Consequences
           </p>
         </header>
 
-        <div className="asteroid-sim-tabs">
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
           <button
             onClick={() => setActiveTab('simulation')}
-            className={`asteroid-sim-tab ${
-              activeTab === 'simulation' ? 'active-tab-simulation' : ''
+            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+              activeTab === 'simulation'
+                ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
+                : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
             }`}
           >
             <Activity size={20} />
@@ -65,8 +67,10 @@ export const AsteroidSimulator = () => {
           </button>
           <button
             onClick={() => setActiveTab('land')}
-            className={`asteroid-sim-tab ${
-              activeTab === 'land' ? 'active-tab-land' : ''
+            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+              activeTab === 'land'
+                ? 'bg-orange-600 text-white shadow-lg shadow-orange-500/50'
+                : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
             }`}
           >
             <Mountain size={20} />
@@ -74,8 +78,10 @@ export const AsteroidSimulator = () => {
           </button>
           <button
             onClick={() => setActiveTab('ocean')}
-            className={`asteroid-sim-tab ${
-              activeTab === 'ocean' ? 'active-tab-ocean' : ''
+            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+              activeTab === 'ocean'
+                ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/50'
+                : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
             }`}
           >
             <Waves size={20} />
@@ -89,10 +95,10 @@ export const AsteroidSimulator = () => {
           {activeTab === 'ocean' && <OceanImpact />}
         </main>
 
-        <footer className="asteroid-sim-footer">
-          <div className="asteroid-sim-footer-content">
-            <p className="asteroid-sim-footer-text">
-              Developed by <span className="asteroid-sim-footer-author">Tereza Gorgolova</span>
+        <footer className="mt-12 mb-6 text-center">
+          <div className="border-t border-slate-700 pt-6">
+            <p className="text-slate-400 text-sm">
+              Developed by <span className="text-slate-300 font-semibold">Tereza Gorgolova</span>
             </p>
           </div>
         </footer>

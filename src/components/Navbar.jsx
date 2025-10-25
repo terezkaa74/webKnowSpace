@@ -29,6 +29,7 @@ export const Navbar = () => {
         <div style={styles.menu}>
           <Link to="/clanky" style={styles.link}>{t('articles')}</Link>
           <Link to="/hry" style={styles.link}>{t('games')}</Link>
+          <a href="mailto:tereza.gorgolova@gmail.com" style={styles.link}>{t('contact')}</a>
 
           {adminProfile && (
             <Link to="/admin" style={styles.adminLink}>
