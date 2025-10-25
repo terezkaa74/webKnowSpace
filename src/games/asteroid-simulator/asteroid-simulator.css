@@ -1,0 +1,141 @@
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.asteroid-sim-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #020617, #1e3a8a, #0f172a);
+  position: relative;
+  overflow: hidden;
+  padding: 24px 16px;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+  pointer-events: none;
+}
+
+.star-small {
+  width: 2px;
+  height: 2px;
+}
+
+.star-medium {
+  width: 3px;
+  height: 3px;
+}
+
+.star-large {
+  width: 4px;
+  height: 4px;
+}
+
+.asteroid-sim-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.asteroid-sim-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.asteroid-sim-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.asteroid-sim-subtitle {
+  color: #cbd5e1;
+  font-size: 1.125rem;
+}
+
+.asteroid-sim-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.asteroid-sim-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
+  background: #334155;
+  color: #cbd5e1;
+  border: none;
+  cursor: pointer;
+}
+
+.asteroid-sim-tab:hover {
+  background: #475569;
+}
+
+.asteroid-sim-tab.active-tab-simulation {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.5);
+}
+
+.asteroid-sim-tab.active-tab-land {
+  background: #ea580c;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.5);
+}
+
+.asteroid-sim-tab.active-tab-ocean {
+  background: #0891b2;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(8, 145, 178, 0.5);
+}
+
+.asteroid-sim-footer {
+  margin-top: 48px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.asteroid-sim-footer-content {
+  border-top: 1px solid #334155;
+  padding-top: 24px;
+}
+
+.asteroid-sim-footer-text {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.asteroid-sim-footer-author {
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .asteroid-sim-title {
+    font-size: 2rem;
+  }
+
+  .asteroid-sim-subtitle {
+    font-size: 1rem;
+  }
+}

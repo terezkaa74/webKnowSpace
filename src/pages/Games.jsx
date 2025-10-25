@@ -57,13 +57,6 @@ export const Games = () => {
           {t('all')}
         </button>
         <button
-          onClick={() => setFilter('quiz')}
-          className={filter === 'quiz' ? 'btn btn-primary' : 'btn btn-outline'}
-          style={styles.filterBtn}
-        >
-          {t('quiz')}
-        </button>
-        <button
           onClick={() => setFilter('simulation')}
           className={filter === 'simulation' ? 'btn btn-primary' : 'btn btn-outline'}
           style={styles.filterBtn}
@@ -71,18 +64,11 @@ export const Games = () => {
           {t('simulation')}
         </button>
         <button
-          onClick={() => setFilter('puzzle')}
-          className={filter === 'puzzle' ? 'btn btn-primary' : 'btn btn-outline'}
+          onClick={() => setFilter('quiz')}
+          className={filter === 'quiz' ? 'btn btn-primary' : 'btn btn-outline'}
           style={styles.filterBtn}
         >
-          {t('puzzle')}
-        </button>
-        <button
-          onClick={() => setFilter('memory')}
-          className={filter === 'memory' ? 'btn btn-primary' : 'btn btn-outline'}
-          style={styles.filterBtn}
-        >
-          {t('memory')}
+          {t('quiz')}
         </button>
       </div>
 

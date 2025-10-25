@@ -18,6 +18,7 @@ import { AdminGames } from './pages/AdminGames';
 import { AdminUsers } from './pages/AdminUsers';
 import { UserLogin } from './pages/UserLogin';
 import { UserProfile } from './pages/UserProfile';
+import { AsteroidSimulator } from './games/asteroid-simulator/AsteroidSimulator';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <Route path="/clanky" element={<Articles />} />
               <Route path="/clanek/:slug" element={<ArticleDetail />} />
               <Route path="/hry" element={<Games />} />
+              <Route path="/hra/asteroid-simulator" element={<AsteroidSimulator />} />
               <Route path="/hra/:slug" element={<GamePlay />} />
               <Route path="/prihlaseni" element={<Login />} />
               <Route path="/uzivatel/prihlaseni" element={<UserLogin />} />
