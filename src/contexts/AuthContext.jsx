@@ -108,12 +108,15 @@ export const AuthProvider = ({ children }) => {
         .insert({
           id: data.user.id,
           full_name: fullName,
-          role: 'content_editor',
+          role: 'super_admin',
         });
 
       if (profileError) {
         console.error('Error creating admin profile:', profileError);
+        return { data, error: profileError };
       }
+
+      await fetchProfiles(data.user.id);
     }
 
     return { data, error };
