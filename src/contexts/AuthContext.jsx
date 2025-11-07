@@ -74,6 +74,23 @@ export const AuthProvider = ({ children }) => {
       email,
       password,
     });
+
+    if (!error && data.user) {
+      const { data: adminProfile } = await supabase
+        .from('admin_profiles')
+        .select('*')
+        .eq('id', data.user.id)
+        .maybeSingle();
+
+      if (!adminProfile && email === 'tereza.gorgolova@gmail.com') {
+        await supabase.from('admin_profiles').insert({
+          id: data.user.id,
+          full_name: 'Tereza Gorgolová',
+          role: 'super_admin',
+        });
+      }
+    }
+
     return { data, error };
   };
 
