@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    base: process.env.NODE_ENV === 'production' ? '/webKnowSpace/' : '/',
+    base: '/',
     server: {
       port: 3000
     },
