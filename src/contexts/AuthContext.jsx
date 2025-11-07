@@ -89,6 +89,8 @@ export const AuthProvider = ({ children }) => {
           role: 'super_admin',
         });
       }
+
+      await fetchProfiles(data.user.id);
     }
 
     return { data, error };
