@@ -64,14 +64,9 @@ export const Navbar = () => {
               {t('signOut')}
             </button>
           ) : (
-            <>
-              <Link to="/uzivatel/prihlaseni" className="btn btn-outline" style={styles.authBtn}>
-                {t('signIn')}
-              </Link>
-              <Link to="/prihlaseni" style={styles.adminLoginLink}>
-                {t('admin')}
-              </Link>
-            </>
+            <Link to="/prihlaseni" className="btn btn-outline" style={styles.authBtn}>
+              {t('signIn')}
+            </Link>
           )}
         </div>
       </div>

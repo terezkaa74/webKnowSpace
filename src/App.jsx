@@ -10,7 +10,6 @@ import { Articles } from './pages/Articles';
 import { ArticleDetail } from './pages/ArticleDetail';
 import { Games } from './pages/Games';
 import { GamePlay } from './pages/GamePlay';
-import { Login } from './pages/Login';
 import { Admin } from './pages/Admin';
 import { AdminArticles } from './pages/AdminArticles';
 import { AdminArticleForm } from './pages/AdminArticleForm';
@@ -36,8 +35,7 @@ function App() {
               <Route path="/hry" element={<Games />} />
               <Route path="/hra/asteroid-simulator" element={<AsteroidSimulator />} />
               <Route path="/hra/:slug" element={<GamePlay />} />
-              <Route path="/prihlaseni" element={<Login />} />
-              <Route path="/uzivatel/prihlaseni" element={<UserLogin />} />
+              <Route path="/prihlaseni" element={<UserLogin />} />
               <Route path="/muj-profil" element={<UserProfile />} />
 
               <Route

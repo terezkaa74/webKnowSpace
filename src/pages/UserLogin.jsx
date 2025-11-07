@@ -9,7 +9,7 @@ export const UserLogin = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
-  const { signInUser, signUpUser, user, isAdmin } = useAuth();
+  const { signIn, signInUser, signUpUser, user, isAdmin } = useAuth();
   const navigate = useNavigate();
 
   if (user && !isAdmin) {
@@ -33,11 +33,22 @@ export const UserLogin = () => {
         navigate('/muj-profil');
       }
     } else {
-      const { error: signInError } = await signInUser(email, password);
-      if (signInError) {
-        setError('Neplatné přihlašovací údaje');
+      const isAdminLogin = email === 'tereza.gorgolova@gmail.com' && password === 'IsMathReal74Anicka74';
+
+      if (isAdminLogin) {
+        const { error: signInError } = await signIn(email, password);
+        if (signInError) {
+          setError('Neplatné přihlašovací údaje');
+        } else {
+          navigate('/admin');
+        }
       } else {
-        navigate('/muj-profil');
+        const { error: signInError } = await signInUser(email, password);
+        if (signInError) {
+          setError('Neplatné přihlašovací údaje');
+        } else {
+          navigate('/muj-profil');
+        }
       }
     }
 
