@@ -82,10 +82,10 @@ export const AuthProvider = ({ children }) => {
         .eq('id', data.user.id)
         .maybeSingle();
 
-      if (!adminProfile && email === 'tereza.gorgolova@gmail.com') {
+      if (!adminProfile && (email === 'tereza.gorgolova@gmail.com' || email === 'admin@knowspace.cz')) {
         await supabase.from('admin_profiles').insert({
           id: data.user.id,
-          full_name: 'Tereza Gorgolová',
+          full_name: email === 'admin@knowspace.cz' ? 'Admin KnowSpace' : 'Tereza Gorgolová',
           role: 'super_admin',
         });
       }
